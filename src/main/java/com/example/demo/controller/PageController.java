@@ -21,4 +21,12 @@ public class PageController {
         return mv;
     }
 
+    /**
+     * 跳转 index 默认页面
+     * */
+    @RequestMapping(value = "/toIndex")
+    public String toIndexPage() {
+        return "page/index";
+    }
+
 }

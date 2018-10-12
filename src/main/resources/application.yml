@@ -1,6 +1,12 @@
-# 服务器端口配置
+# 服务器端口配置 默认端口是 8080
 server:
   port: 8080
+  # 开启嵌入式服务的 HTTPS 服务 开发环境的端口是 8443
+#  ssl:
+#    key-store: # 指向密钥存储文件的存放路径
+#    key-store-password: # 创建密钥文件时给定的密码
+#    key-password:
+
 
 # spring 配置
 spring:
@@ -31,7 +37,7 @@ spring:
       max-pool-prepared-statement-per-connection-size: 20
   # 页面跳转
   thymeleaf:
-    prefix: /templates/
+    prefix: classpath:/templates/
     suffix: .html
 
 # 配置 mybatis
@@ -45,5 +51,17 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+
+# 配置 logback 日志输出
+logging:
+  path: # 存放日志的目录
+  file: # 存放日志的文件名
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+  config:
+    classpath: log4j2.xml
 
 
